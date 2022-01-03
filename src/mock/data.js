@@ -2,29 +2,59 @@ import { nanoid } from 'nanoid';
 
 // HEAD DATA
 export const headData = {
-  title: '', // e.g: 'Name | Developer'
-  lang: '', // e.g: en, es, fr, jp
-  description: '', // e.g: Welcome to my website
+  title: 'MegaVerse', // e.g: 'Name | Developer'
+  lang: 'en', // e.g: en, es, fr, jp
+  description: 'Combining E-commerce with Metaverse', // e.g: Welcome to my website
 };
 
 // HERO DATA
 export const heroData = {
-  title: '',
-  name: '',
-  subtitle: '',
-  cta: '',
+  title: 'We are',
+  name: 'MegaVerse',
+  subtitle: 'We combine E-commerce with Metaverse',
+  cta: 'Know More',
 };
 
 // ABOUT DATA
 export const aboutData = {
-  img: 'profile.jpg',
-  paragraphOne: '',
-  paragraphTwo: '',
-  paragraphThree: '',
-  resume: 'https://www.resumemaker.online/es.php', // if no resume, the button will not show up
+  title: "Our Story",
+  img1: 'profile.jpg',
+  title1: 'Title 1',
+  desc1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  img2: 'profile.jpg',
+  title2: 'Title 2',
+  desc2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  img3: 'profile.jpg',
+  title3: 'Title 3',
+  desc3: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  // paragraphOne: '',
+  // paragraphTwo: '',
+  // paragraphThree: '',
+  // resume: 'https://www.resumemaker.online/es.php', // if no resume, the button will not show up
 };
 
-// PROJECTS DATA
+// PROJECTS.ROADMAP DATA
+export const roadmapDataTitle = {
+  title : "Roadmap"
+}
+export const roadmapData = [
+  {
+   id: nanoid(),
+    title: 'Title 1',
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  {
+    id: nanoid(),
+    title: 'Title 2',
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  {
+    id: nanoid(),
+    title: 'Title 3',
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+];
+
 export const projectsData = [
   {
     id: nanoid(),
@@ -67,24 +97,19 @@ export const footerData = {
   networks: [
     {
       id: nanoid(),
-      name: 'twitter',
-      url: '',
+      name: 'Twitter',
+      url: 'https://twitter.com',
     },
     {
       id: nanoid(),
-      name: 'codepen',
-      url: '',
+      name: 'Discord',
+      url: 'https://discord.com/',
     },
     {
       id: nanoid(),
-      name: 'linkedin',
-      url: '',
-    },
-    {
-      id: nanoid(),
-      name: 'github',
-      url: '',
-    },
+      name: 'Telegram',
+      url: 'https://t.me/RyanCryptoSharing',
+    }
   ],
 };
 

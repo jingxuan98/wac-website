@@ -1,6 +1,7 @@
 // Section
 section {
   padding: 5rem 0rem;
+  width: 100%;
 
   @include respond(phone) {
     border: none;

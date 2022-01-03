@@ -1,8 +1,9 @@
 #hero {
   min-height: 100vh;
-  height: 100vh;
+  height:100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   border-bottom: 0px;
   background: $white-color;
   font-weight: 400;
@@ -25,30 +26,78 @@
     padding: 0rem $default-font-size;
   }
 
+  img{
+    width: 593px ;
+    height: 480px ;
+    
+    @include respond(phone) {
+    width: 356px;
+    height: 288px;
+      
+    }
+    @include respond(phone-xs) {
+    width: 295px;
+    height: 240px;
+      
+    }
+  }
+
+  .hero-container{
+    display: flex;
+    align-items: center;
+
+    @include respond(tab-land) {
+      flex-direction: column-reverse
+    }
+    @include respond(tab-port) {
+      flex-direction: column-reverse
+    }
+    @include respond(phone) {
+      flex-direction: column-reverse
+    }
+    @include respond(phone-xs) {
+      flex-direction: column-reverse
+    }
+  }
+
+  .container-class{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px
+  }
+
   .hero-title {
     font-size: 5.6rem;
     font-weight: 700;
-    margin-bottom: 3.2rem;
+    margin: 3.2rem 0;
     text-align: left;
 
     @include respond(tab-land) {
-      font-size: 4rem;
-    }
-    @include respond(tab-port) {
       font-size: 3.6rem;
       text-align: center;
     }
+    @include respond(tab-port) {
+      font-size: 3rem;
+      text-align: center;
+      
+    }
     @include respond(phone) {
-      font-size: 3.5rem;
+      font-size: 2.8rem;
       line-height: 1.5;
+      
     }
     @include respond(phone-xs) {
-      font-size: 2.8rem;
+      font-size: 2.2rem;
+      
     }
   }
 
   .hero-cta {
     display: flex;
+
+    @include respond(tab-land) {
+      justify-content: center;
+    }
 
     @include respond(tab-port) {
       justify-content: center;

@@ -1,16 +1,22 @@
 import React, { useContext, useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Carousel } from 'react-bootstrap';
 import Title from '../Title/Title';
-import AboutImg from '../Image/AboutImg';
+import {aboutData} from '../../mock/data.js';
+import project from '../../images/project.jpg';
 import PortfolioContext from '../../context/context';
 
 const About = () => {
   const { about } = useContext(PortfolioContext);
-  const { img, paragraphOne, paragraphTwo, paragraphThree, resume } = about;
+  const { title,img1,img2,img3,title1,title2,title3,desc1,desc2,desc3  } = aboutData;
 
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [index, setIndex] = useState(0);
+
+ const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
 
   useEffect(() => {
     if (window.innerWidth > 769) {
@@ -22,11 +28,35 @@ const About = () => {
     }
   }, []);
 
+  const renderSlide = (title, desc, alt, img) => {
+     return( 
+     <Carousel.Item interval={10000}>
+        <img
+          className="slideImg"
+          style={{width: "70%"}}
+          src={img || project}
+          alt={alt}
+        />
+        <Col>
+          <h3 class = "slide-title">{title}</h3>
+          <p class = "slide-desc">{desc}</p>
+        </Col>
+      </Carousel.Item>
+     )
+  }
+
+  
+
   return (
     <section id="about">
       <Container>
-        <Title title="About Me" />
-        <Row className="about-wrapper">
+        <Title title="Our Story" />
+        <Carousel activeIndex={index} onSelect={handleSelect}>
+          {renderSlide(title1, desc1, "alt-first", null)}
+          {renderSlide(title2, desc2, "alt-second", null)}
+          {renderSlide(title1, desc2, "alt-third", null)}
+        </Carousel>
+        {/* <Row className="about-wrapper">
           <Col md={6} sm={12}>
             <Fade bottom duration={1000} delay={600} distance="30px">
               <div className="about-wrapper__image">
@@ -63,7 +93,7 @@ const About = () => {
               </div>
             </Fade>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     </section>
   );

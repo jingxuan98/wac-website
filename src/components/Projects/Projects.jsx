@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Fade from 'react-reveal/Fade';
-import Tilt from 'react-tilt';
+import Title from '../Title/Title';
 import { Container, Row, Col } from 'react-bootstrap';
 import PortfolioContext from '../../context/context';
-import Title from '../Title/Title';
 import ProjectImg from '../Image/ProjectImg';
+import {roadmapDataTitle, roadmapData} from '../../mock/data.js';
+
 
 const Projects = () => {
-  const { projects } = useContext(PortfolioContext);
-
+  //const { projects } = useContext(PortfolioContext);
+  const { title } = roadmapDataTitle;
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -24,8 +25,21 @@ const Projects = () => {
 
   return (
     <section id="projects">
-      <Container>
-        <div className="project-wrapper">
+      <Container style={{marginBottom: "15rem"}}>
+        <Title title={title}/>
+        {console.log(roadmapData)}
+        {roadmapData && roadmapData.map((roadmap) => {
+          const {title, desc} = roadmap;
+          return(
+            <div class="roadmap-container">
+              <h3 class = "slide-title">{title}</h3>
+              <p class = "slide-desc">{desc}</p>
+            </div>
+          )
+        })
+        }
+        
+        {/* <div className="project-wrapper">
           <Title title="Projects" />
           {projects.map((project) => {
             const { title, info, info2, url, repo, img, id } = project;
@@ -110,7 +124,7 @@ const Projects = () => {
               </Row>
             );
           })}
-        </div>
+        </div> */}
       </Container>
     </section>
   );
