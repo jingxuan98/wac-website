@@ -113,5 +113,5 @@ export const footerData = {
       name: 'Telegram',
       url: 'https://t.me/RyanCryptoSharing',
     },
- GitHub stars/fork buttons
+  ],
 };

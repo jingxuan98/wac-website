@@ -2,19 +2,19 @@ import React, { useContext, useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
 import { Container, Row, Col, Carousel } from 'react-bootstrap';
 import Title from '../Title/Title';
-import {aboutData} from '../../mock/data.js';
+import { aboutData } from '../../mock/data.js';
 import project from '../../images/project.jpg';
 import PortfolioContext from '../../context/context';
 
 const About = () => {
   const { about } = useContext(PortfolioContext);
-  const { title,img1,img2,img3,title1,title2,title3,desc1,desc2,desc3  } = aboutData;
+  const { title, img1, img2, img3, title1, title2, title3, desc1, desc2, desc3 } = aboutData;
 
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [index, setIndex] = useState(0);
 
- const handleSelect = (selectedIndex, e) => {
+  const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
 
@@ -29,32 +29,25 @@ const About = () => {
   }, []);
 
   const renderSlide = (title, desc, alt, img) => {
-     return( 
-     <Carousel.Item interval={10000}>
-        <img
-          className="slideImg"
-          style={{width: "70%"}}
-          src={img || project}
-          alt={alt}
-        />
+    return (
+      <Carousel.Item interval={10000}>
+        <img className="slideImg" style={{ width: '70%' }} src={img || project} alt={alt} />
         <Col>
-          <h3 class = "slide-title">{title}</h3>
-          <p class = "slide-desc">{desc}</p>
+          <h3 class="slide-title">{title}</h3>
+          <p class="slide-desc">{desc}</p>
         </Col>
       </Carousel.Item>
-     )
-  }
-
-  
+    );
+  };
 
   return (
     <section id="about">
       <Container>
         <Title title="Our Story" />
         <Carousel activeIndex={index} onSelect={handleSelect}>
-          {renderSlide(title1, desc1, "alt-first", null)}
-          {renderSlide(title2, desc2, "alt-second", null)}
-          {renderSlide(title1, desc2, "alt-third", null)}
+          {renderSlide(title1, desc1, 'alt-first', img1)}
+          {renderSlide(title2, desc2, 'alt-second', img2)}
+          {renderSlide(title3, desc3, 'alt-third', img3)}
         </Carousel>
         {/* <Row className="about-wrapper">
           <Col md={6} sm={12}>
